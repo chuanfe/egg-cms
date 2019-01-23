@@ -1,6 +1,24 @@
 const Service = require('egg').Service;
 
 class NewsService extends Service {
+  
+  /**
+   * 新增新闻
+   * @param {Object} payload 
+   */
+  async add(payload) {
+    const result = await this.app.mysql.insert('news', {
+      id: payload.id,
+      title: payload.title,
+      summary: payload.summary
+    });
+    return result;
+  }
+
+  /**
+   * 获取新闻列表
+   * @param {Number} page 
+   */
   async list(page = 1) {
     const { serverUrl, pageSize } = this.config.news;
 
