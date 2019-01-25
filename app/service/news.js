@@ -44,6 +44,14 @@ class NewsService extends Service {
 
     // return newsList.map(res => res.data);
   }
+
+  /**
+   * 获取新闻详情
+   */
+  async find(id) {
+    const newsItem = this.app.mysql.get('news', { id: id });
+    return newsItem;
+  }
 }
 
 module.exports = NewsService;

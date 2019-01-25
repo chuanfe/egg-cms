@@ -9,3 +9,9 @@ exports.mysql = {
     enable: true,
     package: 'egg-mysql',
 };
+
+// 开启cors 跨域
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+};

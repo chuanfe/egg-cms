@@ -7,10 +7,10 @@ class NewsController extends Controller {
   async add() {
     const ctx = this.ctx;
     // 组装参数
-    const payload = ctx.query || {}
+    const payload = ctx.request.body || {};
     const news = await ctx.service.news.add(payload);
     //前台渲染
-    ctx.body = { news: news };
+    ctx.body = { news: news }; 
     ctx.status = 201;
   }
 
@@ -23,6 +23,17 @@ class NewsController extends Controller {
     // ctx.status = 201;
     //后台渲染
     await ctx.render('news/list.tpl', {list: newsList.data});
+  }
+
+  /**
+   * 获取新闻详情
+   */
+  async find() {
+    const ctx = this.ctx;
+    const id = ctx.query.id || 1;
+    const newsItem = await ctx.service.news.find(id);
+    ctx.body = { newsItem: newsItem };
+    ctx.status = 201;
   }
 }
 

@@ -12,13 +12,39 @@ exports.news = {
   serverUrl: 'https://cnodejs.org/api/v1/topics',
 };
 
-// config/config.default.js
+// 本地数据库
 exports.mysql = {
   client: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: '3306',
     user: 'root',
-    password: 'mw112106',
+    password: '',
     database: 'egg_cms',
   },
+};
+
+// 腾讯云数据库
+// exports.mysql = {
+//   client: {
+//     host: 'cdb-pqrvrcna.bj.tencentcdb.com',
+//     port: '10093',
+//     user: 'root',
+//     password: 'mysql112106',
+//     database: 'egg_cms',
+//   },
+// };
+
+
+// 跨域配置
+exports.security = {
+  csrf: {
+    enable: false,
+    ignoreJSON: true
+  },
+  domainWhiteList: ['*']
+};
+
+exports.cors = {
+  origin:'*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
 };
