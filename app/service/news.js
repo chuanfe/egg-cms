@@ -10,7 +10,8 @@ class NewsService extends Service {
     const result = await this.app.mysql.insert('news', {
       id: payload.id,
       title: payload.title,
-      summary: payload.summary
+      abstract: payload.abstract,
+      content: payload.content
     });
     return result;
   }
