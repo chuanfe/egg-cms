@@ -13,26 +13,26 @@ exports.news = {
 };
 
 // windows数据库
-// exports.mysql = {
-//   client: {
-//     host: 'localhost',
-//     port: '3306',
-//     user: 'root',
-//     password: '',
-//     database: 'egg_cms',
-//   },
-// };
-
-// mac数据库
 exports.mysql = {
   client: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: '3306',
     user: 'root',
-    password: 'mw112106',
+    password: '',
     database: 'egg_cms',
   },
 };
+
+// mac数据库
+// exports.mysql = {
+//   client: {
+//     host: '127.0.0.1',
+//     port: '3306',
+//     user: 'root',
+//     password: 'mw112106',
+//     database: 'egg_cms',
+//   },
+// };
 
 // 腾讯云数据库
 // exports.mysql = {

@@ -14,15 +14,26 @@ class NewsController extends Controller {
     ctx.status = 201;
   }
 
-  async list() {
+  async rebderlist() {
     const ctx = this.ctx;
     const page = ctx.query.page || 1;
-    const newsList = await ctx.service.news.list(page);
+    const newsList = await ctx.service.news.rebderlist(page);
     //前台渲染
     // ctx.body = { dataList: newsList };
     // ctx.status = 201;
     //后台渲染
     await ctx.render('news/list.tpl', {list: newsList.data});
+  }
+
+  /**
+   * 获取新闻详情
+   */
+  async list() {
+    const ctx = this.ctx;
+    const id = ctx.query.id || 1;
+    const newsList = await ctx.service.news.list(id);
+    ctx.body = { data: newsList };
+    ctx.status = 201;
   }
 
   /**

@@ -20,7 +20,9 @@
             <textarea name="summary" id="" cols="30" rows="10"></textarea>
             <textarea name="content" id="" cols="30" rows="10"></textarea>
         </form>
-        <button @click="handleSubmit">提交</button>
+        <button-counter></button-counter>
+        <button @click="handleSubmit">提交1</button>
+        <news-post v-for="post in newsList" v-bind:post="post"></news-post>
         
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

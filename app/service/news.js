@@ -7,6 +7,7 @@ class NewsService extends Service {
    * @param {Object} payload 
    */
   async add(payload) {
+    console.log('*****',payload)
     const result = await this.app.mysql.insert('news', {
       id: payload.id,
       title: payload.title,
@@ -21,6 +22,15 @@ class NewsService extends Service {
    * @param {Number} page 
    */
   async list(page = 1) {
+    const newsList = this.app.mysql.select('news');
+    return newsList;
+  }
+
+  /**
+   * 获取新闻列表
+   * @param {Number} page 
+   */
+  async rebderlist(page = 1) {
     const { serverUrl, pageSize } = this.config.news;
 
     // use build-in http client to GET hacker-news api
